@@ -26,21 +26,38 @@ class TodoList extends StatelessWidget {
                 final todo = todos[index];
                 return Dismissible(
                   key: Key(todo.id),
+                  background: Container(
+                    color: Colors.red,
+                  ),
+                  confirmToDelete: true,
                   onDismissed: (direction) {
                     BlocProvider.of<TodoBloc>(context)
                         .add(DeleteTodoEvent(todo.id));
                   },
-                  child: GestureDetector(
-                    onTap: () => _showEditTodoDialog(context, todo, todo.name),
-                    child: ListTile(
-                      title: Text(
-                        todo.name,
-                        style: const TextStyle(color: Colors.white),
-                      ),
-                      trailing: Checkbox(
-                        value: todo.completed,
-                        onChanged: (value) => BlocProvider.of<TodoBloc>(context)
-                            .add(ToggleTodoEvent(todo.id, value!)),
+                  child: Container(
+                    // Container for styling
+                    margin:
+                        const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    padding: const EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                      color: Colors.grey[850],
+                      borderRadius: BorderRadius.circular(15),
+                      border: Border.all(color: Colors.deepPurple, width: 2),
+                    ),
+                    child: GestureDetector(
+                      onTap: () =>
+                          _showEditTodoDialog(context, todo, todo.name),
+                      child: ListTile(
+                        title: Text(
+                          todo.name,
+                          style: const TextStyle(color: Colors.white),
+                        ),
+                        trailing: Checkbox(
+                          value: todo.completed,
+                          onChanged: (value) =>
+                              BlocProvider.of<TodoBloc>(context)
+                                  .add(ToggleTodoEvent(todo.id, value!)),
+                        ),
                       ),
                     ),
                   ),
@@ -50,7 +67,7 @@ class TodoList extends StatelessWidget {
           } else {
             return const Center(
               child: SpinKitDoubleBounce(
-                color: Colors.deepPurple, 
+                color: Colors.deepPurple,
                 size: 50.0,
               ),
             );

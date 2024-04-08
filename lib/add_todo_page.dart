@@ -33,7 +33,6 @@ class _AddTodoPageState extends State<AddTodoPage> {
       appBar: AppBar(
         backgroundColor: Colors.deepPurple,
         title: Text(isEditing ? 'Edit Todo' : 'Add Todo'),
-        // Back button
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.of(context).pop(),
@@ -61,28 +60,13 @@ class _AddTodoPageState extends State<AddTodoPage> {
                 children: [
                   _GradientButton(
                     onPressed: () {
-                      //context.read<TodoBloc>().add(AddTodoEvent());
-                      // In the relevant widget:
-                      context.read<TodoBloc>().add(AddTodoEvent(Todo(
-                          name: todoTitleController.text.trim(),
-                          id: UniqueKey().toString(),
-                          completed: false)));
-
                       if (isEditing) {
-                        BlocProvider.of<TodoBloc>(context).updateTodo(
-                          widget.todo!.id,
-                          todoTitleController.text.trim(),
-                        );
-                        // } else if (controller.text.isNotEmpty) {
-                        //   context
-                        //       .read<TodoBloc>()
-                        //       .add(UpdateTodoEvent(todo.name, controller.text));
-
-                        //   Navigator.pop(context);
+                        context.read<TodoBloc>().add(UpdateTodoEvent(
+                            widget.todo!.id, todoTitleController.text.trim()));
                       } else {
-                        BlocProvider.of<TodoBloc>(context).addTodo(
-                          todoTitleController.text.trim(),
-                        );
+                        context
+                            .read<TodoBloc>()
+                            .add(AddTodoEvent(todoTitleController.text.trim()));
                       }
                       Navigator.of(context).pop();
                     },
@@ -92,8 +76,9 @@ class _AddTodoPageState extends State<AddTodoPage> {
                     IconButton(
                       icon: const Icon(Icons.delete, color: Colors.red),
                       onPressed: () {
-                        BlocProvider.of<TodoBloc>(context)
-                            .deleteTodo(widget.todo!.id);
+                        context
+                            .read<TodoBloc>()
+                            .add(DeleteTodoEvent(widget.todo!.id)); //imp
                         Navigator.of(context).pop();
                       },
                     ),
@@ -126,7 +111,6 @@ class _GradientButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
           ),
         ),
-        // Gradient effect
         overlayColor: MaterialStateProperty.all<Color>(
           Colors.deepPurple.withOpacity(0.4),
         ),

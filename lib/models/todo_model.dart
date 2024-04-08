@@ -1,31 +1,3 @@
-// class Todo {
-//   final String id;
-//   final String name;
-//   final bool completed;
-//   //final DateTime createdAt;
-
-//   Todo({
-//     required this.id,
-//     required this.name,
-//     required this.completed,
-//     //required this.createdAt,
-//   });
-
-//   Todo copyWith({
-//     String? id,
-//     String? name,
-//     bool? completed,
-//     //DateTime? createdAt,
-//   }) {
-//     return Todo(
-//       id: id ?? this.id,
-//       name: name ?? this.name,
-//       completed: completed ?? this.completed,
-//       //createdAt: createdAt ?? this.createdAt,
-//     );
-//   }
-// }
-
 //implementing it in freezed class
 import 'package:freezed_annotation/freezed_annotation.dart';
 
