@@ -14,4 +14,9 @@ class Todo with _$Todo {
   }) = _Todo;
 
   factory Todo.fromJson(Map<String, dynamic> json) => _$TodoFromJson(json);
+
+  static fromMap(Map<String, dynamic> todoMap) {}
+
+  toMap() {}
 }
+//freezed.dart line 162 extra override

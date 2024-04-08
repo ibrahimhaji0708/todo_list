@@ -37,6 +37,7 @@ dependencies:
   freezed: ^2.4.7
   json_annotation: ^4.8.1
   flutter_spinkit: ^5.2.1
+  shared_preferences: ^2.2.2
 
 dev_dependencies:
   flutter_test:

@@ -1,17 +1,10 @@
-part of 'todo_bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:todo_list/models/todo_model.dart';
 
-abstract class TodoState {
-  final List<Todo> todos;
-  TodoState(this.todos);
-}
+part 'todo_state.freezed.dart';
 
-class TodoInitial extends TodoState {
-  TodoInitial(super.todos);
-}
-
-class TodoLoaded extends TodoState {
-  @override
-  final List<Todo> todos;
-
-  TodoLoaded(this.todos) : super(todos);
+@freezed
+abstract class TodoState with _$TodoState {
+  const factory TodoState.initial(List<Todo> todos) = TodoInitial;
+  const factory TodoState.loaded(List<Todo> todos) = TodoLoaded;
 }

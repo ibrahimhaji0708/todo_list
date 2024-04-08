@@ -23,7 +23,6 @@ class MyApp extends StatelessWidget {
             seedColor: Colors.deepPurple,
           ),
           useMaterial3: true,
-          // Additional styling properties as needed
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(

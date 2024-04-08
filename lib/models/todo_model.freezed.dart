@@ -159,6 +159,12 @@ class _$TodoImpl implements _Todo {
     return _$$TodoImplToJson(
       this,
     );
+  } //potential error could occur 
+  
+  @override
+  toMap() {
+    // TODO: implement toMap
+    throw UnimplementedError();
   }
 }
 
