@@ -19,9 +19,7 @@ class TodoList extends StatefulWidget {
 class _TodoListState extends State<TodoList> {
   List<Todo>? todos;
 
-  Future<SharedPreferences> _getPrefs() async {
-    return await SharedPreferences.getInstance();
-  }
+    Future<SharedPreferences> _getPrefs() async => await SharedPreferences.getInstance();
 
   @override
   void initState() {
