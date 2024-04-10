@@ -16,7 +16,7 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
             completed: false),
       ];
 
-      print('::::list len ' + todolist.length.toString());
+      //print('::::list len ${todolist.length}');
       emit(TodoLoaded(todolist));
     });
     on<UpdateTodoEvent>((event, emit) {

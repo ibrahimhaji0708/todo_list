@@ -116,7 +116,7 @@ class _TodoListState extends State<TodoList> {
                             onChanged: (value) {
                               BlocProvider.of<TodoBloc>(context)
                                   .add(ToggleTodoEvent(todo.id, value!));
-                              _saveTodos(); // Save todos after toggling
+                              _saveTodos();
                             },
                           ),
                         ),

@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:todo_list/models/todo_model.dart';
 
 part 'todo_state.freezed.dart';
+//part 'todo_state.g.dart';
 
 @freezed
 abstract class TodoState with _$TodoState {
